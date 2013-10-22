@@ -653,49 +653,6 @@
           {
             "visibility": "+",
             "variable": {
-              "name": "set",
-              "type": "void"
-            },
-            "arguments": [
-              {
-                "name": "data",
-                "type": "Object"
-              },
-              {
-                "name": "value",
-                "type": "Object"
-              }
-            ]
-          },
-          {
-            "visibility": "+",
-            "variable": {
-              "name": "get",
-              "type": "Object"
-            },
-            "arguments": [
-              {
-                "name": "data",
-                "type": "Object"
-              }
-            ]
-          },
-          {
-            "visibility": "+",
-            "variable": {
-              "name": "has",
-              "type": "boolean"
-            },
-            "arguments": [
-              {
-                "name": "data",
-                "type": "Object"
-              }
-            ]
-          },
-          {
-            "visibility": "+",
-            "variable": {
               "name": "buildDocument",
               "type": "Document"
             },
