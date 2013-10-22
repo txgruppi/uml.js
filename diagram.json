@@ -1,0 +1,927 @@
+{
+  "diagram": {
+    "type": "ClassDiagram",
+    "classes": [
+      {
+        "name": "Document",
+        "properties": [
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "diagram",
+              "type": "Diagram"
+            }
+          }
+        ],
+        "methods": [
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "Document",
+              "type": null
+            },
+            "arguments": [
+              {
+                "name": "diagram",
+                "type": "Diagram"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "ClassDiagram",
+        "properties": [
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "type",
+              "type": "string"
+            }
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "classes",
+              "type": "Class[]"
+            }
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "links",
+              "type": "Link[]"
+            }
+          }
+        ],
+        "methods": [
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "ClassDiagram",
+              "type": null
+            },
+            "arguments": [
+              {
+                "name": "classes",
+                "type": "Class[]"
+              },
+              {
+                "name": "links",
+                "type": "Link[]"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "hasClass",
+              "type": "boolean"
+            },
+            "arguments": [
+              {
+                "name": "class",
+                "type": "Class"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "hasLink",
+              "type": "boolean"
+            },
+            "arguments": [
+              {
+                "name": "link",
+                "type": "Link"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Class",
+        "properties": [
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "name",
+              "type": "string"
+            }
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "properties",
+              "type": "Property[]"
+            }
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "methods",
+              "type": "Method[]"
+            }
+          }
+        ],
+        "methods": [
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "Class",
+              "type": null
+            },
+            "arguments": [
+              {
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "name": "properties",
+                "type": "Property[]"
+              },
+              {
+                "name": "methods",
+                "type": "Method[]"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "hasProperty",
+              "type": "boolean"
+            },
+            "arguments": [
+              {
+                "name": "property",
+                "type": "Property"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "hasMethod",
+              "type": "boolean"
+            },
+            "arguments": [
+              {
+                "name": "method",
+                "type": "Method"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Property",
+        "properties": [
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "visibility",
+              "type": "string"
+            }
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "variable",
+              "type": "Variable"
+            }
+          }
+        ],
+        "methods": [
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "Property",
+              "type": null
+            },
+            "arguments": [
+              {
+                "name": "visibility",
+                "type": "string"
+              },
+              {
+                "name": "variable",
+                "type": "Variable"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Method",
+        "properties": [
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "arguments",
+              "type": "Variable[]"
+            }
+          }
+        ],
+        "methods": [
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "Method",
+              "type": null
+            },
+            "arguments": [
+              {
+                "name": "visibility",
+                "type": "string"
+              },
+              {
+                "name": "variable",
+                "type": "Variable"
+              },
+              {
+                "name": "arguments",
+                "type": "Variable[]"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "hasArgument",
+              "type": "boolean"
+            },
+            "arguments": [
+              {
+                "name": "argument",
+                "type": "Variable"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Variable",
+        "properties": [
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "name",
+              "type": "string"
+            }
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "type",
+              "type": "string"
+            }
+          }
+        ],
+        "methods": [
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "Variable",
+              "type": null
+            },
+            "arguments": [
+              {
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "name": "type",
+                "type": "string"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Link",
+        "properties": [
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "type",
+              "type": "string"
+            }
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "first",
+              "type": "Class"
+            }
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "second",
+              "type": "Class"
+            }
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "descrition",
+              "type": "string"
+            }
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "head_descrition",
+              "type": "string"
+            }
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "tail_descrition",
+              "type": "string"
+            }
+          }
+        ],
+        "methods": [
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "Link",
+              "type": null
+            },
+            "arguments": [
+              {
+                "name": "type",
+                "type": "string"
+              },
+              {
+                "name": "first",
+                "type": "Class"
+              },
+              {
+                "name": "second",
+                "type": "Class"
+              },
+              {
+                "name": "descrition",
+                "type": "string"
+              },
+              {
+                "name": "head_descrition",
+                "type": "string"
+              },
+              {
+                "name": "tail_descrition",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "toJSON",
+              "type": "Object"
+            },
+            "arguments": []
+          }
+        ]
+      },
+      {
+        "name": "GraphvizDot",
+        "properties": [
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "document",
+              "type": "Document"
+            }
+          }
+        ],
+        "methods": [
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "GraphvizDot",
+              "type": null
+            },
+            "arguments": [
+              {
+                "name": "document",
+                "type": "Document"
+              }
+            ]
+          },
+          {
+            "visibility": "-",
+            "variable": {
+              "name": "_document",
+              "type": "string"
+            },
+            "arguments": [
+              {
+                "name": "document",
+                "type": "Document"
+              }
+            ]
+          },
+          {
+            "visibility": "-",
+            "variable": {
+              "name": "_diagram",
+              "type": "string"
+            },
+            "arguments": [
+              {
+                "name": "diagram",
+                "type": "Diagram"
+              }
+            ]
+          },
+          {
+            "visibility": "-",
+            "variable": {
+              "name": "_classDiagram",
+              "type": "string"
+            },
+            "arguments": [
+              {
+                "name": "diagram",
+                "type": "ClassDiagram"
+              }
+            ]
+          },
+          {
+            "visibility": "-",
+            "variable": {
+              "name": "_links",
+              "type": "string"
+            },
+            "arguments": [
+              {
+                "name": "links",
+                "type": "Link[]"
+              }
+            ]
+          },
+          {
+            "visibility": "-",
+            "variable": {
+              "name": "_link",
+              "type": "string"
+            },
+            "arguments": [
+              {
+                "name": "link",
+                "type": "Link"
+              }
+            ]
+          },
+          {
+            "visibility": "-",
+            "variable": {
+              "name": "_classes",
+              "type": "string"
+            },
+            "arguments": [
+              {
+                "name": "classes",
+                "type": "Class[]"
+              }
+            ]
+          },
+          {
+            "visibility": "-",
+            "variable": {
+              "name": "_class",
+              "type": "string"
+            },
+            "arguments": [
+              {
+                "name": "class",
+                "type": "Class"
+              }
+            ]
+          },
+          {
+            "visibility": "-",
+            "variable": {
+              "name": "_properties",
+              "type": "string"
+            },
+            "arguments": [
+              {
+                "name": "properties",
+                "type": "Property[]"
+              }
+            ]
+          },
+          {
+            "visibility": "-",
+            "variable": {
+              "name": "_property",
+              "type": "string"
+            },
+            "arguments": [
+              {
+                "name": "property",
+                "type": "Property"
+              }
+            ]
+          },
+          {
+            "visibility": "-",
+            "variable": {
+              "name": "_methods",
+              "type": "string"
+            },
+            "arguments": [
+              {
+                "name": "methods",
+                "type": "Method[]"
+              }
+            ]
+          },
+          {
+            "visibility": "-",
+            "variable": {
+              "name": "_method",
+              "type": "string"
+            },
+            "arguments": [
+              {
+                "name": "method",
+                "type": "Method"
+              }
+            ]
+          },
+          {
+            "visibility": "-",
+            "variable": {
+              "name": "_arguments",
+              "type": "string"
+            },
+            "arguments": [
+              {
+                "name": "arguments",
+                "type": "Variable[]"
+              }
+            ]
+          },
+          {
+            "visibility": "-",
+            "variable": {
+              "name": "_variable",
+              "type": "string"
+            },
+            "arguments": [
+              {
+                "name": "variable",
+                "type": "Variable"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "export",
+              "type": "string"
+            },
+            "arguments": []
+          }
+        ]
+      },
+      {
+        "name": "JSONFactory",
+        "properties": [
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "classes",
+              "type": "Class[]"
+            }
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "refs",
+              "type": "Object[]"
+            }
+          }
+        ],
+        "methods": [
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "JSONFactory",
+              "type": null
+            },
+            "arguments": []
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "addClass",
+              "type": "void"
+            },
+            "arguments": [
+              {
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "name": "class",
+                "type": "Class"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "getClass",
+              "type": "Class"
+            },
+            "arguments": [
+              {
+                "name": "name",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "set",
+              "type": "void"
+            },
+            "arguments": [
+              {
+                "name": "data",
+                "type": "Object"
+              },
+              {
+                "name": "value",
+                "type": "Object"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "get",
+              "type": "Object"
+            },
+            "arguments": [
+              {
+                "name": "data",
+                "type": "Object"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "has",
+              "type": "boolean"
+            },
+            "arguments": [
+              {
+                "name": "data",
+                "type": "Object"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "buildDocument",
+              "type": "Document"
+            },
+            "arguments": [
+              {
+                "name": "data",
+                "type": "Object"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "buildDiagram",
+              "type": "Diagram"
+            },
+            "arguments": [
+              {
+                "name": "data",
+                "type": "Object"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "buildClasses",
+              "type": "Class[]"
+            },
+            "arguments": [
+              {
+                "name": "data",
+                "type": "Object"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "buildClass",
+              "type": "Class"
+            },
+            "arguments": [
+              {
+                "name": "data",
+                "type": "Object"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "buildProperties",
+              "type": "Property[]"
+            },
+            "arguments": [
+              {
+                "name": "data",
+                "type": "Object"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "buildProperty",
+              "type": "Property"
+            },
+            "arguments": [
+              {
+                "name": "data",
+                "type": "Object"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "buildMethods",
+              "type": "Method[]"
+            },
+            "arguments": [
+              {
+                "name": "data",
+                "type": "Object"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "buildMethod",
+              "type": "Method"
+            },
+            "arguments": [
+              {
+                "name": "data",
+                "type": "Object"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "buildArguments",
+              "type": "Variable[]"
+            },
+            "arguments": [
+              {
+                "name": "data",
+                "type": "Object"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "buildVariable",
+              "type": "Variable"
+            },
+            "arguments": [
+              {
+                "name": "data",
+                "type": "Object"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "buildLinks",
+              "type": "Link[]"
+            },
+            "arguments": [
+              {
+                "name": "data",
+                "type": "Object"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "buildLink",
+              "type": "Link"
+            },
+            "arguments": [
+              {
+                "name": "data",
+                "type": "Object"
+              }
+            ]
+          },
+          {
+            "visibility": "+",
+            "variable": {
+              "name": "build",
+              "type": "Document"
+            },
+            "arguments": [
+              {
+                "name": "data",
+                "type": "Object"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "links": [
+      {
+        "type": "generalization",
+        "first": "Property",
+        "second": "Method",
+        "description": "",
+        "head_description": "",
+        "tail_description": ""
+      },
+      {
+        "type": "aggregation",
+        "first": "Document",
+        "second": "ClassDiagram",
+        "description": "",
+        "head_description": "",
+        "tail_description": ""
+      },
+      {
+        "type": "aggregation",
+        "first": "ClassDiagram",
+        "second": "Class",
+        "description": "",
+        "head_description": "",
+        "tail_description": ""
+      },
+      {
+        "type": "aggregation",
+        "first": "ClassDiagram",
+        "second": "Link",
+        "description": "",
+        "head_description": "",
+        "tail_description": ""
+      },
+      {
+        "type": "aggregation",
+        "first": "Class",
+        "second": "Property",
+        "description": "",
+        "head_description": "",
+        "tail_description": ""
+      },
+      {
+        "type": "aggregation",
+        "first": "Class",
+        "second": "Method",
+        "description": "",
+        "head_description": "",
+        "tail_description": ""
+      },
+      {
+        "type": "aggregation",
+        "first": "Property",
+        "second": "Variable",
+        "description": "",
+        "head_description": "",
+        "tail_description": ""
+      }
+    ]
+  }
+}
