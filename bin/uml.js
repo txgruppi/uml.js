@@ -5,14 +5,17 @@ var path = require('path');
 
 var languages_path = path.join(__dirname, '..', 'languages');
 
-function toDot(language, content) {
+function compile(language, content) {
   var JSONFactory = require('../lib/factories/json');
-  var GraphvizDot = require('../lib/exporters/graphvizdot');
-
   var doc = (new JSONFactory()).build(language.parse(content));
-  var dot = new GraphvizDot(doc);
 
-  console.log(dot.export());
+  if (process.argv[4] === 'json') {
+    console.log(JSON.stringify(doc));
+  } else {
+    var GraphvizDot = require('../lib/exporters/graphvizdot');
+    var dot = new GraphvizDot(doc);
+    console.log(dot.export());
+  }
 }
 
 fs.readdir(languages_path, function(err, list){
@@ -23,11 +26,11 @@ fs.readdir(languages_path, function(err, list){
     if (process.argv[3] == '-') {
       var content = '';
       process.stdin.on('data', function(c){content+=c.toString();});
-      process.stdin.on('end', function(){toDot(language, content)});
+      process.stdin.on('end', function(){compile(language, content)});
     } else {
       fs.readFile(process.argv[3], 'utf8', function(err, content){
         if (err) { throw err; }
-        toDot(language, content);
+        compile(language, content);
       });
     }
   } else {
