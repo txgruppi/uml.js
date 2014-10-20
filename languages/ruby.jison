@@ -2,6 +2,7 @@
 %%
 
 'class'                   return 'CLASS'
+'interface'               return 'INTERFACE'
 'end'                     return 'END'
 '+'                       return 'PUBLIC'
 '-'                       return 'PRIVATE'
@@ -13,7 +14,7 @@
 '['                       return '['
 ']'                       return ']'
 ','                       return ','
-[a-zA-Z_][a-zA-Z0-9_]+    return 'IDENTIFIER'
+[a-zA-Z_.][a-zA-Z0-9_.]+    return 'IDENTIFIER'
 \s+                       /* skip whitespace */
 <<EOF>>                   return 'EOF'
 .                         return 'INVALID'
@@ -43,6 +44,8 @@ class
   | CLASS IDENTIFIER inheritance properties END { $$ = new ClassNode($2, $4, [], $3) }
   | CLASS IDENTIFIER inheritance methods END { $$ = new ClassNode($2, [], $4, $3) }
   | CLASS IDENTIFIER inheritance properties methods END { $$ = new ClassNode($2, $4, $5, $3) }
+  | INTERFACE IDENTIFIER END { $$ = new InterfaceNode($2, []) }
+  | INTERFACE IDENTIFIER methods END { $$ = new InterfaceNode($2, $3) }
   ;
 
 inheritance
@@ -107,23 +110,27 @@ function outputResult(document) {
   var classNameFromArray = function(c){ return c && c.replace(/\[\]$/, ''); }
 
   document.diagram.classes.forEach(function(c){
-    c.parents.forEach(function(p){
-      if (!ClassNode.nameIndex[classNameFromArray(p)]) {
+    c.parents && c.parents.forEach(function(p){
+      if (!ClassNode.nameIndex[classNameFromArray(p)] && !InterfaceNode.nameIndex[classNameFromArray(p)]) {
         document.diagram.classes.push(ClassNode.createAndGet(p));
       }
-      document.diagram.links.push(new LinkNode('generalization', classNameFromArray(p), c.name));
+      if (InterfaceNode.nameIndex[classNameFromArray(p)]) {
+        document.diagram.links.push(new LinkNode('implementation', classNameFromArray(p), c.name));
+      } else {
+        document.diagram.links.push(new LinkNode('generalization', classNameFromArray(p), c.name));
+      }
     });
 
     delete c.parents;
 
-    c.properties.forEach(function(prop){
+    c.properties && c.properties.forEach(function(prop){
       var l = null;
       if (ClassNode.nameIndex[classNameFromArray(prop.variable.type)] && (l = LinkNode.getIfNew('aggregation', c.name, classNameFromArray(prop.variable.type)))) {
         document.diagram.links.push(l);
       }
     });
 
-    c.methods.forEach(function(method){
+    c.methods && c.methods.forEach(function(method){
       var l = null;
       if (ClassNode.nameIndex[classNameFromArray(method.variable.type)] && (l = LinkNode.getIfNew('aggregation', c.name, classNameFromArray(method.variable.type)))) {
         document.diagram.links.push(l);
@@ -168,6 +175,16 @@ ClassNode.nameIndex = {};
 ClassNode.createAndGet = function(name) {
   return ClassNode.nameIndex[name] || new ClassNode(name, [], [], []);
 }
+
+function InterfaceNode(name, methods) {
+  this.name = name;
+  this.methods = methods;
+  if (!InterfaceNode.nameIndex[name]) {
+    InterfaceNode.nameIndex[name] = this;
+  }
+}
+
+InterfaceNode.nameIndex = {};
 
 function PropertyNode(visibility, name, type) {
   this.visibility = visibility;

@@ -2,12 +2,13 @@
 
 var fs = require('fs');
 var path = require('path');
+var jison = require('jison');
 
-var languages_path = path.join(__dirname, '..', 'languages');
+var languagesPath = path.join(__dirname, '..', 'languages');
 
-function compile(language, content) {
+function compile(parser, content) {
   var JSONFactory = require('../lib/factories/json');
-  var doc = (new JSONFactory()).build(language.parse(content));
+  var doc = (new JSONFactory()).build(parser.parse(content));
 
   if (process.argv[4] === 'json') {
     console.log(JSON.stringify(doc));
@@ -18,22 +19,19 @@ function compile(language, content) {
   }
 }
 
-fs.readdir(languages_path, function(err, list){
+fs.readFile(path.join(languagesPath, process.argv[2] + '.jison'), 'utf8', function(err, grammar){
   if (err) { throw err; }
-  var language = process.argv[2];
-  if (list.indexOf(language) != -1) {
-    var language = require(path.join(languages_path, language, language));
-    if (process.argv[3] == '-') {
-      var content = '';
-      process.stdin.on('data', function(c){content+=c.toString();});
-      process.stdin.on('end', function(){compile(language, content)});
-    } else {
-      fs.readFile(process.argv[3], 'utf8', function(err, content){
-        if (err) { throw err; }
-        compile(language, content);
-      });
-    }
+  var parser = new jison.Parser(grammar);
+  if (process.argv[3] == '-') {
+    var content = '';
+    process.stdin.on('data', function(c){content+=c.toString();});
+    process.stdin.on('end', function(){
+      compile(parser, content)
+    });
   } else {
-    throw "Can't find pseudo-language based on " + language + " at " + languages_path;
+    fs.readFile(process.argv[3], 'utf8', function(err, content){
+      if (err) { throw err; }
+      compile(parser, content);
+    });
   }
 });

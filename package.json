@@ -1,8 +1,14 @@
 {
   "name": "uml.js",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Create class diagram using Graphviz Dot",
-  "keywords": ["uml", "class", "diagram", "graphviz", "dot"],
+  "keywords": [
+    "uml",
+    "class",
+    "diagram",
+    "graphviz",
+    "dot"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,6 +24,7 @@
   "author": "Tarcísio Gruppi <txgruppi@gmail.com> (http://txgruppi.com/)",
   "license": "GPL v2",
   "dependencies": {
+    "jison": "^0.4.15",
     "lodash": "~2.2.1"
   }
 }
