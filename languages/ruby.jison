@@ -14,7 +14,7 @@
 '['                       return '['
 ']'                       return ']'
 ','                       return ','
-[a-zA-Z_.][a-zA-Z0-9_.]+    return 'IDENTIFIER'
+[a-zA-Z_.][a-zA-Z0-9_.]*  return 'IDENTIFIER'
 \s+                       /* skip whitespace */
 <<EOF>>                   return 'EOF'
 .                         return 'INVALID'
@@ -125,19 +125,19 @@ function outputResult(document) {
 
     c.properties && c.properties.forEach(function(prop){
       var l = null;
-      if (ClassNode.nameIndex[classNameFromArray(prop.variable.type)] && (l = LinkNode.getIfNew('aggregation', c.name, classNameFromArray(prop.variable.type)))) {
+      if ((ClassNode.nameIndex[classNameFromArray(prop.variable.type)] || InterfaceNode.nameIndex[classNameFromArray(prop.variable.type)]) && (l = LinkNode.getIfNew('aggregation', c.name, classNameFromArray(prop.variable.type)))) {
         document.diagram.links.push(l);
       }
     });
 
     c.methods && c.methods.forEach(function(method){
       var l = null;
-      if (ClassNode.nameIndex[classNameFromArray(method.variable.type)] && (l = LinkNode.getIfNew('aggregation', c.name, classNameFromArray(method.variable.type)))) {
+      if ((ClassNode.nameIndex[classNameFromArray(method.variable.type)] || InterfaceNode.nameIndex[classNameFromArray(method.variable.type)]) && (l = LinkNode.getIfNew('aggregation', c.name, classNameFromArray(method.variable.type)))) {
         document.diagram.links.push(l);
       }
 
       method.arguments.forEach(function(arg){
-        if (ClassNode.nameIndex[classNameFromArray(arg.type)] && (l = LinkNode.getIfNew('aggregation', c.name, classNameFromArray(arg.type)))) {
+        if ((ClassNode.nameIndex[classNameFromArray(arg.type)] || InterfaceNode.nameIndex[classNameFromArray(arg.type)]) && (l = LinkNode.getIfNew('aggregation', c.name, classNameFromArray(arg.type)))) {
           document.diagram.links.push(l);
         }
       });
