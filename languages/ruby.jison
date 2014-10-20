@@ -44,8 +44,8 @@ class
   | CLASS IDENTIFIER inheritance properties END { $$ = new ClassNode($2, $4, [], $3) }
   | CLASS IDENTIFIER inheritance methods END { $$ = new ClassNode($2, [], $4, $3) }
   | CLASS IDENTIFIER inheritance properties methods END { $$ = new ClassNode($2, $4, $5, $3) }
-  | INTERFACE IDENTIFIER END { $$ = new InterfaceNode($2, []) }
-  | INTERFACE IDENTIFIER methods END { $$ = new InterfaceNode($2, $3) }
+  | INTERFACE IDENTIFIER inheritance END { $$ = new InterfaceNode($2, [], $3) }
+  | INTERFACE IDENTIFIER inheritance methods END { $$ = new InterfaceNode($2, $4, $3) }
   ;
 
 inheritance
@@ -176,9 +176,10 @@ ClassNode.createAndGet = function(name) {
   return ClassNode.nameIndex[name] || new ClassNode(name, [], [], []);
 }
 
-function InterfaceNode(name, methods) {
+function InterfaceNode(name, methods, parents) {
   this.name = name;
   this.methods = methods;
+  this.parents = parents;
   if (!InterfaceNode.nameIndex[name]) {
     InterfaceNode.nameIndex[name] = this;
   }
