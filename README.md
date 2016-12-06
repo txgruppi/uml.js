@@ -1,3 +1,5 @@
+# ABANDONED - There is no active development on this project.
+
 # UML.js
 
 Convert JSON to UML using Graphviz Dot.
