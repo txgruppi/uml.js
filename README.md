@@ -1,4 +1,6 @@
-# ABANDONED - There is no active development on this project.
+# ABANDONED
+
+----
 
 # UML.js
 
